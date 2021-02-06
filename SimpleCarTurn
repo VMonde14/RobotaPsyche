@@ -1,0 +1,98 @@
+// declare your mover class
+Mover m;
+
+
+void setup() {
+  size(640, 360);
+  m = new Mover();  //initiate the mover
+} 
+
+void draw() {
+  background(255);
+
+  m.update();    //call functions within the mover class
+
+  m.display();
+  m.keyPressed();
+  m.checkEdges();
+}
+
+
+class Mover {
+
+  PVector location;  //declare useful PVectors
+  PVector velocity;
+  PVector left;  //Use these to show direction
+  PVector right;
+  PVector up;
+  PVector down;
+  float speed;  //set the vehicle speed. Note: equal in x and y so it drives straight
+
+  Mover() {
+
+    speed = 1.5;  //set vehicle speed. Lower = slower, Higher = faster;
+
+    location = new PVector(0, 0);
+    velocity = new PVector(speed, speed);  //speed effects velocity
+    left = new PVector(-velocity.x, 0);  //change direction based on velocity
+    right = new PVector(velocity.x, 0);
+    up = new PVector(0, -velocity.y);
+    down = new PVector(0, velocity.x);
+  }
+
+  void update() {
+
+    location.add(velocity);  //make the car move by adding velocity to the location every frame
+  }
+
+  void display() {
+
+    stroke(0);  
+    fill(175);  
+
+    rectMode(CENTER);  //draw rectangle from the center, rather than corner
+    pushMatrix();
+    translate(location.x, location.y);  //translate the grid to the upper left corner
+    rotate(velocity.heading());    //rotate the front of the car based on which way it is moving
+
+    //start drawing the car
+    rect(0, 0, 40, 20);  //body of car
+    ellipse(12, 15, 15, 15);  //wheels
+    ellipse(12, -15, 15, 15);
+    ellipse(-12, 15, 15, 15);
+    ellipse(-12, -15, 15, 15);
+    fill(0);  //distinguish driver from car
+    ellipse(10, 0, 12, 12); // driver
+
+    popMatrix();
+  }
+
+  void checkEdges() {
+    if (location.y > height) {  //if it reaches the bottom, put it at the top and vice versa
+      location.set(location.x, 0);
+    } else if (location.y < 0) {
+      location.set(location.x, height);
+    }
+
+    if (location.x > width) {  //if it reaches the side, put it at the other side
+      location.set(30, location.y);
+    } else if (location.x < 0) {
+      location.set(width, location.y);
+    }
+  }
+
+  void keyPressed() {
+    if (keyCode == LEFT) {   //make it turn left 
+      velocity.set(left);
+    }
+    if (keyCode == RIGHT) {  //make it turn right
+      velocity.set(right);
+    }
+    if (keyCode == UP) {    //make it turn up
+      velocity.set(up);
+    }
+    if (keyCode == DOWN) {  //make it turn down
+      velocity.set(down);
+    }
+  }
+}
