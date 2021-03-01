@@ -12,7 +12,10 @@ it'll "eat" it and regain energy. Similarly, if the vehicle is away from the foo
 reaches the death threshold, the vehicle will be removed. 
 
 As of now, regeneration is just tracked by time. Everytime the framerate % 100 = 0, a new vehicle spawns in a random place with DNA
-copied from another vehicle on the screen. Originally, I had a "life" counter that was continually increases as the vehicles were
+copied from another vehicle on the screen. I found that, over time, eventually the vehicles become the same- usually medium size. 
+Is this vehicle more adept at seeking the food? Is it better at pushing other vehicles away from the food? How will mutations affect this? 
+
+Originally, I had a "life" counter that was continually increases as the vehicles were
 alive. If the vehicle reached "maturity" it would reproduce. Maturity was a set value of the life counter. I would also use the life
 counter to mimic the "Death At" number. However, I had a lot of problems with this. I believe I needed to change the loop from an enhanced loop
 to the backwards one we talked about, which I later did with the "energy" and "deathAt" counters after looking at Professor Shiloh's code. 
