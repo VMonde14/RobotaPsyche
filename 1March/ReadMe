@@ -1,0 +1,25 @@
+1 March - Evolution Sketch
+
+One major decision I made was mapping the speed of the vehicles to how big they are. So, as the sizes increase, the vehicle slows down. 
+I felt this accurately represented life as, usually, larger animals move slower. 
+
+In my DNA, I included the size, steering force and initial energy. These were good starting points to get unique characteristics for 
+each vehicle. I also included a "Death At" number that would act as a Grim Reaper, telling the program when to remove dead vehicles. 
+Going forward, I would like to include color in the DNA so it is more obvious which DNA the new vehicles are copying. 
+
+The vehicle is in constant pursuit of the food source, which begins at the center of the screen. If it gets close enough to the food, 
+it'll "eat" it and regain energy. Similarly, if the vehicle is away from the food, it will continuously lose energy. If the energy level 
+reaches the death threshold, the vehicle will be removed. 
+
+As of now, regeneration is just tracked by time. Everytime the framerate % 100 = 0, a new vehicle spawns in a random place with DNA
+copied from another vehicle on the screen. Originally, I had a "life" counter that was continually increases as the vehicles were
+alive. If the vehicle reached "maturity" it would reproduce. Maturity was a set value of the life counter. I would also use the life
+counter to mimic the "Death At" number. However, I had a lot of problems with this. I believe I needed to change the loop from an enhanced loop
+to the backwards one we talked about, which I later did with the "energy" and "deathAt" counters after looking at Professor Shiloh's code. 
+
+I had a big issue with the "amount" variable and trying to get the food source to deplete over time. It feels like a very stupid mistake, 
+but I've put like hours into figuring it out and I'm just stuck. It won't let me call the amount from another class. I've tried a lot of work arounds
+like changing where I put the amount and passing the amount through the constructor, but I can't get it to work. 
+
+If I do get it to work, I want the food source to deplete as vehicles eat it. This would cause a new food source to come onto the screen. I then need to change
+the "Target" the vehicles are seeking...which I anticipate being confused about. 
