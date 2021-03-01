@@ -1,0 +1,28 @@
+class DNA {
+
+  float bSize;
+  float maxSp;
+  float maxF;
+  float initialEnergy;
+  float deadAt;
+
+  DNA(float s, float force, float ie, float dat) {
+    bSize = s;
+    maxF = force;
+    maxSp = map(bSize, 2, 10, 10, 0.1);  //as the being gets smaller, speed increases
+    initialEnergy = ie;
+    deadAt = dat;
+  }
+
+  DNA getDNA() {
+
+    // make a copy because this will be the DNA for the new vehicle
+    DNA dna = new DNA(bSize, maxF, initialEnergy, deadAt);
+    return dna;
+  }
+
+  void mutate() {
+
+    //build this up to have changes in DNA
+  }
+}
