@@ -1,0 +1,22 @@
+class Food {
+  PVector location;
+  int amount;  //I want the food to be limited. NOTE: Stuck on this
+
+  Food (float x, float y) {
+    location = new PVector(x, y);
+    amount = 150;
+  }
+
+  PVector getLocation() {
+    return (location.copy());
+  }
+
+  void display() {
+    fill(128);
+    ellipse(location.x, location.y, 20, 20);
+  }
+
+  float amount() {
+    return(amount);
+  }
+}
