@@ -1,0 +1,29 @@
+class DNA {
+
+  float bSize;
+  float maxSp;
+  float maxF;
+  float initialEnergy;
+  float deadAt;
+  int mutateChance;
+
+  DNA(float s, float force, float ie, float dat) {
+    bSize = s;
+    maxF = force;
+    maxSp = map(bSize, .05, .1, 2, 0.01);  //as the ant gets smaller, speed increases
+    initialEnergy = ie;
+    deadAt = dat;
+  }
+
+  DNA getDNA() {
+
+    // make a copy because this will be the DNA for the new vehicle
+    DNA dna = new DNA(bSize, maxF, initialEnergy, deadAt);
+    return dna;
+  }
+
+  int mutate() {
+    mutateChance = (int)random(10);
+    return mutateChance;
+  }
+}
