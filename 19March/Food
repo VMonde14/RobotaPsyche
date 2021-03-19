@@ -1,0 +1,30 @@
+/* this class is not really used. 
+I had an idea to make the food amount decrease 
+as it was being consumed but struggled
+with implementation
+
+*/
+
+class Food {
+  PVector location;
+  int amount;  
+
+  Food (float x, float y) {
+    location = new PVector(x, y);
+    amount = 150;
+  }
+
+  PVector getLocation() {
+    return (location.copy());
+  }
+
+  void display() {
+    fill(142, 106, 0);  //display a food particle
+    ellipse(location.x, location.y, 20, 20);
+  }
+
+  float getAmount() {  //see if the amount of low enough. 
+    return(amount);
+  }
+  
+}
