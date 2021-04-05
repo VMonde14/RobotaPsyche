@@ -31,6 +31,6 @@ line(p1.x, p1.y, p3.x, p3.y);
 
 b = PVector.sub(v, p2);  //find the difference between p2 and p1
 b.normalize();  //make the magnitude 1
-c = b.mult(p1.dot(b));    //no idea what this does
+c = b.mult(p1.dot(b));    
 println(c);
 line(p1.x, p1.y, p2.x, p2.y);
