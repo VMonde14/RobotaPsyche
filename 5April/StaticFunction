@@ -1,0 +1,36 @@
+/*
+Tori Mondello
+ Robota Psyche
+ 3 April 2021
+ */
+
+PVector p1;
+PVector p2;
+PVector p3;
+PVector b;
+PVector c;
+PVector v;
+
+size(1000, 800);
+p1 = new PVector(100, 100);  //draw initial vectors
+p2 = new PVector(100, 500);
+p3 = new PVector(500, 300);
+
+background(200, 255, 255);
+fill(0);  
+ellipse(p1.x, p1.y, 20, 20);  //visualize p1, p2, p3
+ellipse(p2.x, p2.y, 20, 20);
+ellipse(p3.x, p3.y, 20, 20);
+
+
+
+v = PVector.sub(p1, p3);
+//v.normalize();
+//println(v);
+line(p1.x, p1.y, p3.x, p3.y);
+
+b = PVector.sub(v, p2);  //find the difference between p2 and p1
+b.normalize();  //make the magnitude 1
+c = b.mult(p1.dot(b));    //no idea what this does
+println(c);
+line(p1.x, p1.y, p2.x, p2.y);
